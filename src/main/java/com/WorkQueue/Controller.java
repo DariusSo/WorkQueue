@@ -21,9 +21,9 @@ public class Controller {
         service.saveEmail(email);
     }
     @PostMapping("/picture")
-    public void savePicture(@RequestParam("file") MultipartFile file) throws IOException {
+    public void savePicture(@RequestBody byte[] file) throws IOException {
         Picture picture = new Picture();
-        picture.setPicture(file.getBytes());
+        picture.setPicture(file);
         service.savePicture(picture);
     }
 }
